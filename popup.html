@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Google Account Router</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <div class="brand-mark" aria-hidden="true">G</div>
+        <div>
+          <h1>Google Account Router</h1>
+          <p>Sem coleta de dados</p>
+        </div>
+      </header>
+
+      <form id="settings-form" class="service-list">
+        <section class="service-card" data-service="gmail">
+          <div class="service-top">
+            <div class="service-icon service-icon-gmail" aria-hidden="true">M</div>
+            <div>
+              <h2>Gmail</h2>
+              <p>mail.google.com</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="gmail-enabled" data-field="enabled" data-service="gmail">
+              <span class="slider" aria-hidden="true"></span>
+              <span class="sr-only">Ativar Gmail</span>
+            </label>
+          </div>
+
+          <label class="field" for="gmail-account">
+            <span>Conta</span>
+            <input id="gmail-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="gmail">
+          </label>
+
+          <div class="url-preview">
+            <span>URL</span>
+            <code id="gmail-preview"></code>
+          </div>
+        </section>
+
+        <section class="service-card" data-service="classroom">
+          <div class="service-top">
+            <div class="service-icon service-icon-classroom" aria-hidden="true">C</div>
+            <div>
+              <h2>Classroom</h2>
+              <p>classroom.google.com</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="classroom-enabled" data-field="enabled" data-service="classroom">
+              <span class="slider" aria-hidden="true"></span>
+              <span class="sr-only">Ativar Classroom</span>
+            </label>
+          </div>
+
+          <label class="field" for="classroom-account">
+            <span>Conta</span>
+            <input id="classroom-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="classroom">
+          </label>
+
+          <div class="url-preview">
+            <span>URL</span>
+            <code id="classroom-preview"></code>
+          </div>
+        </section>
+
+        <section class="service-card" data-service="google">
+          <div class="service-top">
+            <div class="service-icon service-icon-google" aria-hidden="true">G</div>
+            <div>
+              <h2>Google</h2>
+              <p>www.google.com</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="google-enabled" data-field="enabled" data-service="google">
+              <span class="slider" aria-hidden="true"></span>
+              <span class="sr-only">Ativar Google</span>
+            </label>
+          </div>
+
+          <label class="field" for="google-account">
+            <span>Conta</span>
+            <input id="google-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="google">
+          </label>
+
+          <div class="url-preview">
+            <span>URL</span>
+            <code id="google-preview"></code>
+          </div>
+        </section>
+
+        <button id="save-button" class="save-button" type="submit">
+          Salvar configurações
+        </button>
+        <p id="save-status" class="status" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
