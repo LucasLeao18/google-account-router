@@ -12,12 +12,21 @@
         <div class="brand-mark" aria-hidden="true">G</div>
         <div>
           <h1>Google Account Router</h1>
-          <p>Sem coleta de dados</p>
+          <p class="developer-line">
+            <span data-i18n="developer">Desenvolvedor</span>
+            <a href="https://github.com/LucasLeao18" target="_blank" rel="noopener">LucasLeao18</a>
+          </p>
         </div>
       </header>
 
+      <div class="language-switch" role="group" aria-label="Idioma">
+        <span data-i18n="language">Idioma</span>
+        <button class="language-button" type="button" data-language="pt">PT</button>
+        <button class="language-button" type="button" data-language="en">EN</button>
+      </div>
+
       <form id="settings-form" class="service-list">
-        <p class="account-note">Conta 0 = conta padrão do Google neste navegador.</p>
+        <p class="account-note" data-i18n="accountNote">Conta 0 = conta padrão do Google neste navegador.</p>
 
         <section class="service-card" data-service="gmail">
           <div class="service-top">
@@ -29,12 +38,12 @@
             <label class="switch">
               <input type="checkbox" id="gmail-enabled" data-field="enabled" data-service="gmail">
               <span class="slider" aria-hidden="true"></span>
-              <span class="sr-only">Ativar Gmail</span>
+              <span class="sr-only" data-i18n="enableGmail">Ativar Gmail</span>
             </label>
           </div>
 
           <label class="field" for="gmail-account">
-            <span>Conta</span>
+            <span data-i18n="account">Conta</span>
             <input id="gmail-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="gmail">
           </label>
         </section>
@@ -49,12 +58,12 @@
             <label class="switch">
               <input type="checkbox" id="classroom-enabled" data-field="enabled" data-service="classroom">
               <span class="slider" aria-hidden="true"></span>
-              <span class="sr-only">Ativar Classroom</span>
+              <span class="sr-only" data-i18n="enableClassroom">Ativar Classroom</span>
             </label>
           </div>
 
           <label class="field" for="classroom-account">
-            <span>Conta</span>
+            <span data-i18n="account">Conta</span>
             <input id="classroom-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="classroom">
           </label>
         </section>
@@ -69,17 +78,17 @@
             <label class="switch">
               <input type="checkbox" id="google-enabled" data-field="enabled" data-service="google">
               <span class="slider" aria-hidden="true"></span>
-              <span class="sr-only">Ativar Google</span>
+              <span class="sr-only" data-i18n="enableGoogle">Ativar Google</span>
             </label>
           </div>
 
           <label class="field" for="google-account">
-            <span>Conta</span>
+            <span data-i18n="account">Conta</span>
             <input id="google-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="google">
           </label>
         </section>
 
-        <button id="save-button" class="save-button" type="submit">
+        <button id="save-button" class="save-button" type="submit" data-i18n="save">
           Salvar configurações
         </button>
         <p id="save-status" class="status" aria-live="polite"></p>

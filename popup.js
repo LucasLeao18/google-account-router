@@ -1,4 +1,5 @@
 const STORAGE_KEY = "googleAccountRouterSettings";
+const LANGUAGE_KEY = "googleAccountRouterLanguage";
 
 const DEFAULT_SETTINGS = {
   classroom: { enabled: false, accountIndex: 0 },
@@ -7,10 +8,40 @@ const DEFAULT_SETTINGS = {
 };
 
 const SERVICES = ["gmail", "classroom", "google"];
+const DEFAULT_LANGUAGE = "pt";
+
+const TRANSLATIONS = {
+  pt: {
+    account: "Conta",
+    accountNote: "Conta 0 = conta padrão do Google neste navegador.",
+    developer: "Desenvolvedor",
+    enableClassroom: "Ativar Classroom",
+    enableGmail: "Ativar Gmail",
+    enableGoogle: "Ativar Google",
+    language: "Idioma",
+    save: "Salvar configurações",
+    saved: "Configurações salvas",
+    saving: "Salvando..."
+  },
+  en: {
+    account: "Account",
+    accountNote: "Account 0 = the default Google account in this browser.",
+    developer: "Developer",
+    enableClassroom: "Enable Classroom",
+    enableGmail: "Enable Gmail",
+    enableGoogle: "Enable Google",
+    language: "Language",
+    save: "Save settings",
+    saved: "Settings saved",
+    saving: "Saving..."
+  }
+};
 
 const form = document.querySelector("#settings-form");
 const saveButton = document.querySelector("#save-button");
 const statusEl = document.querySelector("#save-status");
+const languageButtons = document.querySelectorAll("[data-language]");
+let currentLanguage = DEFAULT_LANGUAGE;
 
 function normalizeAccountIndex(value) {
   const parsed = Number.parseInt(value, 10);
@@ -33,6 +64,14 @@ function normalizeSettings(settings = {}) {
   );
 }
 
+function normalizeLanguage(language) {
+  return language === "en" ? "en" : DEFAULT_LANGUAGE;
+}
+
+function t(key) {
+  return TRANSLATIONS[currentLanguage][key] || TRANSLATIONS[DEFAULT_LANGUAGE][key] || key;
+}
+
 function storageGet() {
   return new Promise((resolve) => {
     chrome.storage.sync.get({ [STORAGE_KEY]: DEFAULT_SETTINGS }, (result) => {
@@ -41,9 +80,37 @@ function storageGet() {
   });
 }
 
+function storageGetLanguage() {
+  return new Promise((resolve) => {
+    chrome.storage.sync.get({ [LANGUAGE_KEY]: DEFAULT_LANGUAGE }, (result) => {
+      resolve(normalizeLanguage(result[LANGUAGE_KEY]));
+    });
+  });
+}
+
 function storageSet(settings) {
   return new Promise((resolve) => {
     chrome.storage.sync.set({ [STORAGE_KEY]: settings }, resolve);
+  });
+}
+
+function storageSetLanguage(language) {
+  return new Promise((resolve) => {
+    chrome.storage.sync.set({ [LANGUAGE_KEY]: normalizeLanguage(language) }, resolve);
+  });
+}
+
+function applyLanguage(language) {
+  currentLanguage = normalizeLanguage(language);
+  document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
+  document.querySelector(".language-switch").setAttribute("aria-label", t("language"));
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = t(element.dataset.i18n);
+  });
+
+  languageButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.language === currentLanguage));
   });
 }
 
@@ -91,16 +158,26 @@ form.addEventListener("input", (event) => {
   }
 });
 
+languageButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    applyLanguage(button.dataset.language);
+    await storageSetLanguage(currentLanguage);
+  });
+});
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   saveButton.disabled = true;
-  statusEl.textContent = "Salvando...";
+  statusEl.textContent = t("saving");
 
   await storageSet(getFormSettings());
 
   saveButton.disabled = false;
-  showStatus("Configurações salvas");
+  showStatus(t("saved"));
 });
 
-storageGet().then(render);
+Promise.all([storageGet(), storageGetLanguage()]).then(([settings, language]) => {
+  applyLanguage(language);
+  render(settings);
+});

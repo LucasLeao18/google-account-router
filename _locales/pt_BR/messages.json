@@ -1,0 +1,8 @@
+{
+  "extensionName": {
+    "message": "Google Account Router"
+  },
+  "extensionDescription": {
+    "message": "Redireciona serviços Google selecionados para o índice de conta configurado."
+  }
+}

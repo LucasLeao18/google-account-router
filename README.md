@@ -34,6 +34,7 @@ https://classroom.google.com/u/3/
 
 - Extensão Chrome com Manifest V3.
 - Popup moderno, simples e com modo claro/escuro automático.
+- Interface em português e inglês.
 - Preferências salvas com `chrome.storage.sync`.
 - Redirecionamento automático via background service worker.
 - Cada serviço pode ser ativado ou desativado individualmente.

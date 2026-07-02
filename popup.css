@@ -29,7 +29,8 @@ body {
 }
 
 button,
-input {
+input,
+a {
   font: inherit;
 }
 
@@ -42,7 +43,7 @@ input {
   grid-template-columns: 48px 1fr;
   gap: 12px;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .brand-mark {
@@ -72,12 +73,60 @@ h1 {
   line-height: 1.2;
 }
 
-.header p,
+.developer-line,
 .service-top p,
 .field span {
   color: var(--muted);
   font-size: 12px;
   font-weight: 650;
+}
+
+.developer-line a {
+  color: var(--primary-strong);
+  text-decoration: none;
+}
+
+.developer-line a:hover {
+  text-decoration: underline;
+}
+
+.language-switch {
+  display: grid;
+  grid-template-columns: 1fr 52px 52px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.language-switch span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.language-button {
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 800;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.language-button[aria-pressed="true"] {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.language-button:hover {
+  border-color: var(--primary);
 }
 
 .service-list {
@@ -269,6 +318,10 @@ h2 {
 
   .save-button {
     color: #1c1007;
+  }
+
+  .language-button[aria-pressed="true"] {
+    color: #09201d;
   }
 }
 
