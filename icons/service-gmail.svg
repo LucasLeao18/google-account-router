@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Gmail">
+  <rect width="48" height="48" rx="10" fill="#fff"/>
+  <path fill="#ea4335" d="M9 14.5v20c0 1.4 1.1 2.5 2.5 2.5H16V22.1z"/>
+  <path fill="#34a853" d="M32 37h4.5c1.4 0 2.5-1.1 2.5-2.5v-20L32 22.1z"/>
+  <path fill="#fbbc04" d="M32 14.5v7.6l7-7.6c0-2.7-3.1-4.2-5.2-2.5z"/>
+  <path fill="#4285f4" d="M16 22.1v-7.6L24 21l8-6.5v7.6l-8 6.5z"/>
+  <path fill="#c5221f" d="M9 14.5 16 22.1v-7.6L14.2 12C12.1 10.3 9 11.8 9 14.5z"/>
+  <rect x=".5" y=".5" width="47" height="47" rx="9.5" fill="none" stroke="#dfe5e8"/>
+</svg>

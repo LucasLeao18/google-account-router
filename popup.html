@@ -17,9 +17,11 @@
       </header>
 
       <form id="settings-form" class="service-list">
+        <p class="account-note">Conta 0 = conta padrão do Google neste navegador.</p>
+
         <section class="service-card" data-service="gmail">
           <div class="service-top">
-            <div class="service-icon service-icon-gmail" aria-hidden="true">M</div>
+            <img class="service-icon" src="icons/service-gmail.svg" alt="" aria-hidden="true">
             <div>
               <h2>Gmail</h2>
               <p>mail.google.com</p>
@@ -35,16 +37,11 @@
             <span>Conta</span>
             <input id="gmail-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="gmail">
           </label>
-
-          <div class="url-preview">
-            <span>URL</span>
-            <code id="gmail-preview"></code>
-          </div>
         </section>
 
         <section class="service-card" data-service="classroom">
           <div class="service-top">
-            <div class="service-icon service-icon-classroom" aria-hidden="true">C</div>
+            <img class="service-icon" src="icons/service-classroom.svg" alt="" aria-hidden="true">
             <div>
               <h2>Classroom</h2>
               <p>classroom.google.com</p>
@@ -60,16 +57,11 @@
             <span>Conta</span>
             <input id="classroom-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="classroom">
           </label>
-
-          <div class="url-preview">
-            <span>URL</span>
-            <code id="classroom-preview"></code>
-          </div>
         </section>
 
         <section class="service-card" data-service="google">
           <div class="service-top">
-            <div class="service-icon service-icon-google" aria-hidden="true">G</div>
+            <img class="service-icon" src="icons/service-google.svg" alt="" aria-hidden="true">
             <div>
               <h2>Google</h2>
               <p>www.google.com</p>
@@ -85,11 +77,6 @@
             <span>Conta</span>
             <input id="google-account" type="number" min="0" step="1" inputmode="numeric" data-field="accountIndex" data-service="google">
           </label>
-
-          <div class="url-preview">
-            <span>URL</span>
-            <code id="google-preview"></code>
-          </div>
         </section>
 
         <button id="save-button" class="save-button" type="submit">

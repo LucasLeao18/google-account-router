@@ -6,17 +6,7 @@ const DEFAULT_SETTINGS = {
   google: { enabled: false, accountIndex: 0 }
 };
 
-const SERVICES = {
-  gmail: {
-    preview: (index) => `https://mail.google.com/mail/u/${index}/`
-  },
-  classroom: {
-    preview: (index) => `https://classroom.google.com/u/${index}/`
-  },
-  google: {
-    preview: (index) => `https://www.google.com/u/${index}/`
-  }
-};
+const SERVICES = ["gmail", "classroom", "google"];
 
 const form = document.querySelector("#settings-form");
 const saveButton = document.querySelector("#save-button");
@@ -57,19 +47,10 @@ function storageSet(settings) {
   });
 }
 
-function updatePreview(service) {
-  const accountInput = form.querySelector(`[data-service="${service}"][data-field="accountIndex"]`);
-  const preview = document.querySelector(`#${service}-preview`);
-  const index = normalizeAccountIndex(accountInput.value);
-
-  accountInput.value = index;
-  preview.textContent = SERVICES[service].preview(index);
-}
-
 function getFormSettings() {
   return normalizeSettings(
     Object.fromEntries(
-      Object.keys(SERVICES).map((service) => {
+      SERVICES.map((service) => {
         const enabledInput = form.querySelector(`[data-service="${service}"][data-field="enabled"]`);
         const accountInput = form.querySelector(`[data-service="${service}"][data-field="accountIndex"]`);
 
@@ -92,7 +73,6 @@ function render(settings) {
 
     enabledInput.checked = value.enabled;
     accountInput.value = value.accountIndex;
-    updatePreview(service);
   });
 }
 
@@ -106,10 +86,8 @@ function showStatus(message) {
 }
 
 form.addEventListener("input", (event) => {
-  const service = event.target.dataset.service;
-
-  if (service && SERVICES[service]) {
-    updatePreview(service);
+  if (event.target.dataset.field === "accountIndex") {
+    event.target.value = normalizeAccountIndex(event.target.value);
   }
 });
 

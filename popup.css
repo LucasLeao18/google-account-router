@@ -45,13 +45,9 @@ input {
   margin-bottom: 16px;
 }
 
-.brand-mark,
-.service-icon {
+.brand-mark {
   display: grid;
   place-items: center;
-  color: #ffffff;
-  font-weight: 800;
-  line-height: 1;
 }
 
 .brand-mark {
@@ -59,6 +55,9 @@ input {
   height: 48px;
   border-radius: 8px;
   background: var(--text);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1;
   box-shadow: var(--shadow);
 }
 
@@ -75,7 +74,6 @@ h1 {
 
 .header p,
 .service-top p,
-.url-preview span,
 .field span {
   color: var(--muted);
   font-size: 12px;
@@ -87,9 +85,19 @@ h1 {
   gap: 12px;
 }
 
+.account-note {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .service-card {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   padding: 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -112,27 +120,12 @@ h1 {
 }
 
 .service-icon {
+  display: block;
   width: 44px;
   height: 44px;
   border-radius: 8px;
-  font-size: 17px;
-}
-
-.service-icon-gmail {
-  background: #c5221f;
-}
-
-.service-icon-classroom {
-  background: #0f9d58;
-}
-
-.service-icon-google {
-  background: #1a73e8;
-}
-
-h2 {
-  font-size: 15px;
-  line-height: 1.25;
+  object-fit: contain;
+  box-shadow: 0 8px 18px rgba(16, 42, 46, 0.1);
 }
 
 .switch {
@@ -200,22 +193,9 @@ h2 {
   text-align: center;
 }
 
-.url-preview {
-  display: grid;
-  gap: 6px;
-  min-width: 0;
-  padding: 10px;
-  border-radius: 8px;
-  background: var(--surface-muted);
-}
-
-.url-preview code {
-  min-width: 0;
-  color: var(--primary-strong);
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 12px;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
+h2 {
+  font-size: 15px;
+  line-height: 1.25;
 }
 
 .save-button {
