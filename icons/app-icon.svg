@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Google Account Router">
   <defs>
     <linearGradient id="background" x1="18" y1="16" x2="112" y2="118" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0D9488"/>
-      <stop offset=".52" stop-color="#102A2E"/>
-      <stop offset="1" stop-color="#EA580C"/>
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset=".46" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#020617"/>
     </linearGradient>
     <linearGradient id="shine" x1="24" y1="18" x2="84" y2="96" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity=".32"/>
@@ -11,13 +11,14 @@
     </linearGradient>
   </defs>
   <rect x="8" y="8" width="112" height="112" rx="26" fill="url(#background)"/>
+  <ellipse cx="61" cy="65" rx="43" ry="41" fill="#1D4ED8" opacity=".36"/>
   <path d="M20 34C34 18 61 14 80 25" fill="none" stroke="url(#shine)" stroke-width="18" stroke-linecap="round"/>
   <path d="M34 44c17-18 48-16 60 2 12 17-1 38-23 38H42" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="m45 66-17 18 17 18" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="35" cy="44" r="10" fill="#4285F4"/>
-  <circle cx="94" cy="48" r="10" fill="#FBBC04"/>
-  <circle cx="70" cy="84" r="10" fill="#34A853"/>
+  <circle cx="35" cy="44" r="10" fill="#2563EB" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="94" cy="48" r="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="3"/>
+  <circle cx="70" cy="84" r="10" fill="#020617" stroke="#FFFFFF" stroke-width="3"/>
   <circle cx="35" cy="44" r="4" fill="#FFFFFF"/>
-  <circle cx="94" cy="48" r="4" fill="#FFFFFF"/>
+  <circle cx="94" cy="48" r="4" fill="#2563EB"/>
   <circle cx="70" cy="84" r="4" fill="#FFFFFF"/>
 </svg>
